@@ -1,0 +1,13 @@
+{
+  "name": "lp-neuro-nex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NeuroNex landing page (static export from Framer, optimized for Vercel)",
+  "scripts": {
+    "dev": "serve public -l 4321",
+    "start": "serve public -l 4321"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
