@@ -1,0 +1,67 @@
+/* ============================================================
+TRUST / LOGO BAR
+============================================================ */
+#trust {
+position: relative;
+padding: 48px 0;
+background: var(--bg-1);
+border-top: 1px solid var(--border-s);
+border-bottom: 1px solid var(--border-s);
+overflow: hidden;
+}
+#trust::before {
+content: '';
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(124,58,237,0.04), transparent);
+pointer-events: none;
+}
+.trust-label {
+text-align: center;
+font-size: 0.72rem;
+color: var(--muted);
+letter-spacing: 0.08em;
+text-transform: uppercase;
+margin-bottom: 28px;
+}
+.logo-bar-wrap {
+position: relative;
+overflow: hidden;
+}
+.logo-bar-wrap::before,
+.logo-bar-wrap::after {
+content: '';
+position: absolute;
+top: 0; bottom: 0;
+width: 120px;
+z-index: 2;
+pointer-events: none;
+}
+.logo-bar-wrap::before { left: 0; background: linear-gradient(to right, var(--bg-1), transparent); }
+.logo-bar-wrap::after { right: 0; background: linear-gradient(to left, var(--bg-1), transparent); }
+.logo-track {
+display: flex;
+align-items: center;
+gap: 0;
+width: max-content;
+animation: logo-scroll 28s linear infinite;
+}
+.logo-track:hover { animation-play-state: paused; }
+.logo-item {
+display: flex;
+align-items: center;
+padding: 0 36px;
+white-space: nowrap;
+font-family: var(--font-head);
+font-size: 0.96rem;
+font-weight: 300;
+letter-spacing: -0.01em;
+color: rgba(255,255,255,0.25);
+transition: color 0.3s;
+border-right: 1px solid rgba(255,255,255,0.06);
+}
+.logo-track:hover .logo-item:hover { color: rgba(255,255,255,0.55); }
+@keyframes logo-scroll {
+from { transform: translateX(0); }
+to { transform: translateX(-50%); }
+}

@@ -1,0 +1,192 @@
+---
+import { features } from '../data/site';
+---
+
+<section class="section" id="features">
+  <div class="section-sep"></div>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{features.label}</span>
+      <h2>
+        {features.title}<br />
+        <span class="text-gradient">{features.titleAccent}</span>
+      </h2>
+      <p>{features.description}</p>
+    </div>
+
+    <div class="bento-grid stagger-up" id="bentoGrid">
+      {features.cards.map((card) => (
+        <div class="bento-card reveal-child">
+          <div class="bc-grid"></div>
+          <div class="bc-shimmer"></div>
+          <div class="bc-corner bc-corner-tl"></div>
+          <div class="bc-corner bc-corner-br"></div>
+          <div class="bc-header">
+            <div class="bc-live-dot"></div>
+            <span class="bc-header-title">{card.title}</span>
+            <span class="bc-header-tag">{card.tag.split('·').pop()?.trim()}</span>
+          </div>
+          <div class="bc-body">
+            <p>{card.description}</p>
+
+            {card.widget === 'bars' && (
+              <div class="bento-widget" id="barWidget">
+                <div class="bw-status">
+                  <span class="bw-status-label">Conversas/hora</span>
+                  <span class="bw-status-val">482</span>
+                </div>
+                <div class="widget-bars" id="barChartWidget">
+                  <div class="widget-bar" style="height:45%"></div>
+                  <div class="widget-bar" style="height:68%"></div>
+                  <div class="widget-bar" style="height:55%"></div>
+                  <div class="widget-bar" style="height:82%"></div>
+                  <div class="widget-bar" style="height:60%"></div>
+                  <div class="widget-bar" style="height:74%"></div>
+                  <div class="widget-bar" style="height:50%"></div>
+                  <div class="widget-bar" style="height:88%"></div>
+                </div>
+              </div>
+            )}
+
+            {card.widget === 'donut' && (
+              <div class="bento-widget">
+                <div class="bw-status">
+                  <span class="bw-status-label">Qualificação</span>
+                  <span class="bw-status-val">72%</span>
+                </div>
+                <div class="widget-donut">
+                  <svg class="donut-svg" viewBox="0 0 72 72">
+                    <circle cx="36" cy="36" fill="none" r="28" stroke="rgba(124,58,237,0.1)" stroke-width="8"></circle>
+                    <circle cx="36" cy="36" fill="none" opacity="0.9" r="28" stroke="#7c3aed" stroke-dasharray="126 176" stroke-dashoffset="44" stroke-linecap="round" stroke-width="8"></circle>
+                    <circle cx="36" cy="36" fill="none" opacity="0.5" r="28" stroke="#a78bfa" stroke-dasharray="44 176" stroke-dashoffset="-82" stroke-linecap="round" stroke-width="8"></circle>
+                    <text fill="#a78bfa" font-family="Outfit" font-size="10" font-weight="300" text-anchor="middle" x="36" y="39">72%</text>
+                  </svg>
+                  <div class="donut-labels">
+                    <div class="donut-item"><div class="donut-dot" style="background:#7c3aed"></div>Qualificados</div>
+                    <div class="donut-item"><div class="donut-dot" style="background:#a78bfa"></div>Em análise</div>
+                    <div class="donut-item"><div class="donut-dot" style="background:rgba(255,255,255,0.15)"></div>Frios</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {card.widget === 'grid' && (
+              <div class="bento-widget">
+                <div class="bw-status">
+                  <span class="bw-status-label">Módulos ativos</span>
+                  <span class="bw-status-val">12 / 12</span>
+                </div>
+                <div class="widget-team">
+                  <div class="team-row">
+                    <div class="team-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">FN</div>
+                    <span class="team-name">Financeiro</span>
+                    <div class="team-progress"><div class="team-progress-fill" style="width:92%"></div></div>
+                    <span class="team-score">Online</span>
+                  </div>
+                  <div class="team-row">
+                    <div class="team-avatar" style="background:linear-gradient(135deg,#6d28d9,#7c3aed)">OP</div>
+                    <span class="team-name">Operações</span>
+                    <div class="team-progress"><div class="team-progress-fill" style="width:78%"></div></div>
+                    <span class="team-score">Online</span>
+                  </div>
+                  <div class="team-row">
+                    <div class="team-avatar" style="background:linear-gradient(135deg,#c4b5fd,#a78bfa)">CS</div>
+                    <span class="team-name">Clientes</span>
+                    <div class="team-progress"><div class="team-progress-fill" style="width:65%"></div></div>
+                    <span class="team-score">Online</span>
+                  </div>
+                  <div class="team-row">
+                    <div class="team-avatar" style="background:linear-gradient(135deg,#6d28d9,#5b21b6)">RP</div>
+                    <span class="team-name">Relatórios</span>
+                    <div class="team-progress"><div class="team-progress-fill" style="width:54%"></div></div>
+                    <span class="team-score">Online</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {card.widget === 'pills' && (
+              <div class="bento-widget">
+                <div class="bw-status">
+                  <span class="bw-status-label">Conectadas</span>
+                  <span class="bw-status-val">12 ativas</span>
+                </div>
+                <div class="widget-integrations">
+                  <span class="int-badge">WhatsApp</span>
+                  <span class="int-badge">Stripe</span>
+                  <span class="int-badge">Supabase</span>
+                  <span class="int-badge">Vercel</span>
+                  <span class="int-badge">n8n</span>
+                  <span class="int-badge">OpenAI</span>
+                  <span class="int-badge">HubSpot</span>
+                  <span class="int-badge">Notion</span>
+                  <span class="int-badge" style="color:var(--accent-light);border-style:dashed">+50</span>
+                </div>
+              </div>
+            )}
+
+            {card.widget === 'funnel' && (
+              <div class="bento-widget">
+                <div class="bw-status">
+                  <span class="bw-status-label">Conversão</span>
+                  <span class="bw-status-val">14,2%</span>
+                </div>
+                <div class="widget-pipeline">
+                  <div class="pipeline-stage">
+                    <span class="pipeline-stage-label">Visitas</span>
+                    <div class="pipeline-stage-bar" style="width:92%"></div>
+                    <span class="pipeline-stage-val">10.000</span>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span class="pipeline-stage-label">Leads</span>
+                    <div class="pipeline-stage-bar" style="width:64%"></div>
+                    <span class="pipeline-stage-val">3.800</span>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span class="pipeline-stage-label">Qualificados</span>
+                    <div class="pipeline-stage-bar" style="width:42%"></div>
+                    <span class="pipeline-stage-val">2.200</span>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span class="pipeline-stage-label">Vendas</span>
+                    <div class="pipeline-stage-bar" style="width:24%"></div>
+                    <span class="pipeline-stage-val">R$ 180K</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {card.widget === 'speed' && (
+              <div class="bento-widget">
+                <div class="bw-status">
+                  <span class="bw-status-label">Lighthouse</span>
+                  <span class="bw-status-val">98 / 100</span>
+                </div>
+                <div class="widget-signals" id="signalWidget">
+                  <div class="signal-row"><div class="signal-dot"></div>Performance — 98</div>
+                  <div class="signal-row"><div class="signal-dot"></div>Acessibilidade — 100</div>
+                  <div class="signal-row"><div class="signal-dot"></div>Best Practices — 100</div>
+                  <div class="signal-row"><div class="signal-dot"></div>SEO — 100</div>
+                  <div class="signal-row"><div class="signal-dot hot"></div>LCP — 1,2s</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Ambient bar chart animation
+  const bars = document.querySelectorAll('.widget-bar') as NodeListOf<HTMLElement>;
+  if (bars.length) {
+    setInterval(() => {
+      bars.forEach((bar) => {
+        const h = Math.floor(Math.random() * 60) + 30;
+        bar.style.height = h + '%';
+      });
+    }, 2200);
+  }
+</script>

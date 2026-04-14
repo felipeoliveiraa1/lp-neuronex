@@ -1,0 +1,117 @@
+---
+import { showcase } from '../data/site';
+---
+
+<section class="section section-alt" id="showcase">
+  <div class="section-sep"></div>
+  <div class="container showcase-container">
+    <div class="section-header reveal">
+      <span class="section-label">{showcase.label}</span>
+      <h2>
+        {showcase.title}<br />
+        <span class="text-gradient">{showcase.titleAccent}</span>
+      </h2>
+      <p>{showcase.description}</p>
+    </div>
+
+    <div class="product-ui-wrap reveal" id="productUI">
+      <div class="ui-titlebar">
+        <div class="ui-dots">
+          <div class="ui-dot"></div>
+          <div class="ui-dot"></div>
+          <div class="ui-dot"></div>
+        </div>
+        <div class="ui-tabs">
+          {showcase.tabs.map((t, i) => (
+            <span class={`ui-tab ${i === 0 ? 'active' : ''}`}>{t}</span>
+          ))}
+        </div>
+      </div>
+      <div class="ui-body">
+        <div class="ui-sidebar">
+          <div class="ui-sidebar-logo">
+            <div class="ui-sidebar-logo-mark"></div>
+            <span class="ui-sidebar-logo-text">{showcase.sidebarTitle}</span>
+          </div>
+          {showcase.sidebarItems.map((item, i) => (
+            <div class={`ui-nav-item ${i === 0 ? 'active' : ''}`}>
+              <span class="iconify" data-icon={item.icon}></span>
+              {item.label}
+            </div>
+          ))}
+        </div>
+
+        <div class="ui-main">
+          <div class="ui-main-header">
+            <span class="ui-main-title">{showcase.mainTitle}</span>
+            <span class="ui-date-badge">{showcase.dateBadge}</span>
+          </div>
+
+          <div class="ui-metrics-row">
+            {showcase.topMetrics.map((m) => (
+              <div class="ui-metric-card">
+                <div class="ui-metric-val">{m.value}</div>
+                <div class="ui-metric-label">{m.label}</div>
+                <div class="ui-metric-delta">{m.delta}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="ui-chart-area">
+            <div class="ui-chart-title">Faturamento Recorrente Mensal</div>
+            <svg class="chart-svg" id="revChart" preserveAspectRatio="none" viewBox="0 0 600 120">
+              <defs>
+                <linearGradient id="chartFillGrad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.25"></stop>
+                  <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+              <path
+                class="chart-area-fill"
+                d="M0 110 L60 95 L120 88 L180 78 L240 70 L300 62 L360 52 L420 45 L480 35 L540 28 L600 20 L600 120 L0 120 Z"
+                fill="url(#chartFillGrad)"
+                id="chartAreaPath"
+              ></path>
+              <path
+                class="chart-line"
+                d="M0 110 L60 95 L120 88 L180 78 L240 70 L300 62 L360 52 L420 45 L480 35 L540 28 L600 20"
+                id="chartLinePath"
+              ></path>
+              <text fill="rgba(255,255,255,0.2)" font-family="Inter" font-size="6" x="0" y="118">Jan</text>
+              <text fill="rgba(255,255,255,0.2)" font-family="Inter" font-size="6" x="120" y="118">Mar</text>
+              <text fill="rgba(255,255,255,0.2)" font-family="Inter" font-size="6" x="240" y="118">Mai</text>
+              <text fill="rgba(255,255,255,0.2)" font-family="Inter" font-size="6" x="360" y="118">Jul</text>
+              <text fill="rgba(255,255,255,0.2)" font-family="Inter" font-size="6" x="480" y="118">Set</text>
+              <text fill="rgba(255,255,255,0.2)" font-family="Inter" font-size="6" x="570" y="118">Nov</text>
+              <circle cx="600" cy="20" fill="#a78bfa" opacity="0.9" r="4">
+                <animate attributeName="r" dur="2s" repeatCount="indefinite" values="3;5;3"></animate>
+              </circle>
+            </svg>
+          </div>
+
+          <div class="ui-kanban" id="uiKanban">
+            <div class="kanban-col">
+              <div class="kanban-col-header">Prospecção <span class="kanban-count">12</span></div>
+              <div class="kanban-card">ACME Ltda — R$ 180K</div>
+              <div class="kanban-card">TechFlow — R$ 95K</div>
+            </div>
+            <div class="kanban-col">
+              <div class="kanban-col-header">Descoberta <span class="kanban-count">8</span></div>
+              <div class="kanban-card">Vertix — R$ 420K</div>
+              <div class="kanban-card">Nova Labs — R$ 210K</div>
+            </div>
+            <div class="kanban-col">
+              <div class="kanban-col-header">Proposta <span class="kanban-count">5</span></div>
+              <div class="kanban-card">Meridian — R$ 780K</div>
+              <div class="kanban-card">Cascade — R$ 340K</div>
+            </div>
+            <div class="kanban-col">
+              <div class="kanban-col-header">Fechamento <span class="kanban-count">3</span></div>
+              <div class="kanban-card">Apex — R$ 1,2M</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

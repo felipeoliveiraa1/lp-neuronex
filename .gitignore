@@ -16,8 +16,11 @@ pnpm-debug.log*
 .env.production
 .env.local
 
-# macOS-specific files
+# macOS
 .DS_Store
 
 # vercel
 .vercel
+
+# design reference (kept locally, not committed)
+cadence-landing-19.aura.build/

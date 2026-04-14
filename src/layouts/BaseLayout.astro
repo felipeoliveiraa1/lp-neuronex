@@ -1,0 +1,89 @@
+---
+import { site } from '../data/site';
+
+import '../styles/fonts.css';
+import '../styles/tokens.css';
+import '../styles/css-custom-properties.css';
+import '../styles/reset-base.css';
+import '../styles/typography.css';
+import '../styles/nav.css';
+import '../styles/hero-section.css';
+import '../styles/trust-logo-bar.css';
+import '../styles/features-bento-grid.css';
+import '../styles/how.css';
+import '../styles/metrics-strip.css';
+import '../styles/section-shared.css';
+import '../styles/product-ui-showcase.css';
+import '../styles/testimonials.css';
+import '../styles/cta-section.css';
+import '../styles/footer.css';
+import '../styles/scroll-animations.css';
+import '../styles/responsive.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${site.brand} — Tecnologia sob medida pra crescer`,
+  description = site.description,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.brand} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <meta name="theme-color" content="#0A0A18" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Iconify (lazy, CDN) -->
+    <script is:inline src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline define:vars={{ gtmId: site.gtmId }}>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', gtmId);
+    </script>
+  </head>
+  <body>
+    <!-- GTM (noscript) -->
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${site.gtmId}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <slot />
+  </body>
+</html>

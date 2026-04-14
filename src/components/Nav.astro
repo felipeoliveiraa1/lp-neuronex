@@ -1,0 +1,55 @@
+---
+import { site, nav } from '../data/site';
+---
+
+<nav>
+  <a class="nav-logo" href="#hero" aria-label={site.brand}>
+    <img src="/logo-nav.webp" alt={site.brand} width="120" height="32" />
+  </a>
+  <ul class="nav-links">
+    {nav.links.map((l) => (
+      <li><a href={l.href}>{l.label}</a></li>
+    ))}
+  </ul>
+  <div class="nav-cta">
+    <a class="btn-nav btn-nav-solid" href={nav.cta.href} target="_blank" rel="noopener">
+      {nav.cta.label}
+    </a>
+  </div>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <ul>
+    {nav.links.map((l) => (
+      <li><a href={l.href}>{l.label}</a></li>
+    ))}
+  </ul>
+  <a
+    class="btn-nav btn-nav-solid"
+    style="margin-top:20px;display:inline-block"
+    href={nav.cta.href}
+    target="_blank"
+    rel="noopener"
+  >
+    {nav.cta.label}
+  </a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
+  if (hamburger && navMobile) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMobile.classList.toggle('open');
+    });
+    navMobile.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMobile.classList.remove('open');
+      }),
+    );
+  }
+</script>

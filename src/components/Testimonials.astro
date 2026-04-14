@@ -1,0 +1,58 @@
+---
+import { testimonials } from '../data/site';
+const { featured, cards } = testimonials;
+---
+
+<section class="section" id="testimonials">
+  <div class="section-sep"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">{testimonials.label}</span>
+      <h2>
+        {testimonials.title} <span class="text-gradient">{testimonials.titleAccent}</span>
+      </h2>
+      <p>{testimonials.description}</p>
+    </div>
+
+    <div class="testimonials-layout">
+      <!-- Featured -->
+      <div class="testi-featured reveal-left">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span
+          ><span class="testi-star">★</span><span class="testi-star">★</span
+          ><span class="testi-star">★</span>
+        </div>
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-quote">{featured.quote}</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style={`background:${featured.gradient}`}>{featured.initials}</div>
+          <div>
+            <div class="testi-name">{featured.name}</div>
+            <div class="testi-role">{featured.role}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack -->
+      <div class="testi-stack reveal-right">
+        {cards.map((t) => (
+          <div class="testi-card">
+            <div class="testi-stars" style="margin-bottom:12px">
+              <span class="testi-star">★</span><span class="testi-star">★</span
+              ><span class="testi-star">★</span><span class="testi-star">★</span
+              ><span class="testi-star">★</span>
+            </div>
+            <p class="testi-quote">{t.quote}</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style={`background:${t.gradient}`}>{t.initials}</div>
+              <div>
+                <div class="testi-name">{t.name}</div>
+                <div class="testi-role">{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

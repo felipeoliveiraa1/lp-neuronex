@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Trust from '../components/Trust.astro';
+import Features from '../components/Features.astro';
+import Metrics from '../components/Metrics.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Showcase from '../components/Showcase.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Nav />
+  <Hero />
+  <Trust />
+  <Features />
+  <Metrics />
+  <HowItWorks />
+  <Showcase />
+  <Testimonials />
+  <CtaFinal />
+  <Footer />
+
+  <script>
+    // ─── IntersectionObserver: trigger .reveal / .reveal-left / .reveal-right / .stagger-up ───
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            if (entry.target.id === 'productUI') {
+              setTimeout(() => {
+                document.getElementById('chartLinePath')?.classList.add('drawn');
+                document.getElementById('chartAreaPath')?.classList.add('shown');
+              }, 400);
+            }
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+    );
+    document
+      .querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-up, #productUI')
+      .forEach((el) => io.observe(el));
+  </script>
+</BaseLayout>

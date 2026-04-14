@@ -1,0 +1,26 @@
+---
+import { ctaFinal } from '../data/site';
+---
+
+<section id="cta-section">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="reveal">
+      <span class="section-label">{ctaFinal.label}</span>
+      <h2 class="cta-title">
+        {ctaFinal.title}<br />
+        <span class="text-gradient">{ctaFinal.titleAccent}</span>
+      </h2>
+      <p class="cta-sub">{ctaFinal.description}</p>
+      <div class="cta-buttons">
+        <a class="btn-cta-primary" href={ctaFinal.primaryCta.href} target="_blank" rel="noopener">
+          <span class="iconify" data-icon={ctaFinal.primaryCta.icon}></span>
+          {ctaFinal.primaryCta.label}
+        </a>
+        <a class="btn-cta-ghost" href={ctaFinal.secondaryCta.href} target="_blank" rel="noopener">
+          <span class="iconify" data-icon={ctaFinal.secondaryCta.icon}></span>
+          {ctaFinal.secondaryCta.label}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

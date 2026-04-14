@@ -1,0 +1,336 @@
+/* ============================================================
+HOW IT WORKS — Dual layout (desktop vs mobile)
+
+Desktop: sticky scroll com left column + 4 panels com depth.
+Mobile:  lista vertical simples dos 4 steps.
+
+A seleção é feita via @media E via classe .is-mobile (fallback JS),
+garantindo que UMA das variantes sempre fica escondida.
+============================================================ */
+
+/* Default — desktop visible, mobile hidden */
+.how-desktop { display: block; height: 100%; }
+.how-mobile  { display: none; }
+
+/* Media query */
+@media (max-width: 991px) {
+  #how { height: auto !important; }
+  .how-desktop { display: none; }
+  .how-mobile  { display: block; }
+}
+
+/* JS fallback — classe .is-mobile adicionada ao #how via matchMedia */
+#how.is-mobile { height: auto !important; }
+#how.is-mobile .how-desktop { display: none !important; }
+#how.is-mobile .how-mobile  { display: block !important; }
+#how:not(.is-mobile) .how-desktop { display: block; height: 100%; }
+#how:not(.is-mobile) .how-mobile  { display: none; }
+
+/* ============================================================
+   MOBILE LAYOUT
+   ============================================================ */
+.how-mobile {
+  position: relative;
+  padding: 80px 20px;
+}
+
+.how-mobile-intro {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.how-mobile-intro .section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.how-mobile-intro h2 {
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.how-mobile-intro p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.how-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.how-mobile-card {
+  position: relative;
+  padding: 22px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border-m);
+  background: linear-gradient(180deg, rgba(124, 58, 237, 0.04), rgba(255, 255, 255, 0.01));
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.how-mobile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4), transparent);
+}
+
+.how-mobile-card-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.how-mobile-step-num {
+  flex-shrink: 0;
+  font-family: var(--font-head);
+  font-weight: 200;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.how-mobile-card-head h3 {
+  font-family: var(--font-head);
+  font-weight: 300;
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+  color: var(--heading);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.how-mobile-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.how-mobile-card p {
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Widget container inside mobile card */
+.how-mobile-widget {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.how-mobile-widget .hw-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.72rem;
+}
+.how-mobile-widget .hw-status-label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.62rem;
+}
+.how-mobile-widget .hw-status-val {
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+/* Pills (integrations) — wrapped */
+.how-mobile-widget .hw-integrations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.how-mobile-widget .hw-int-pill {
+  font-size: 0.68rem;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: rgba(124, 58, 237, 0.05);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.how-mobile-widget .hw-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+.how-mobile-widget .hw-status-dot.on {
+  background: var(--accent-light);
+  box-shadow: 0 0 6px var(--accent-light);
+}
+.how-mobile-widget .hw-status-dot.off {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Funnel rows */
+.how-mobile-widget .hw-funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.how-mobile-widget .hw-funnel-row {
+  display: grid;
+  grid-template-columns: 70px 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+}
+.how-mobile-widget .hw-funnel-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+.how-mobile-widget .hw-funnel-bar-wrap {
+  height: 6px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.how-mobile-widget .hw-funnel-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 999px;
+}
+.how-mobile-widget .hw-funnel-pct {
+  font-size: 0.62rem;
+  color: var(--muted);
+}
+.how-mobile-widget .hw-funnel-val {
+  font-size: 0.68rem;
+  color: var(--accent-light);
+  font-weight: 500;
+}
+
+/* Gauge — compact inline */
+.how-mobile-widget .hw-gauge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.how-mobile-widget .hw-gauge-ring {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+.how-mobile-widget .hw-gauge-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.how-mobile-widget .hw-gauge-ring .ring-bg {
+  fill: none;
+  stroke: rgba(124, 58, 237, 0.1);
+  stroke-width: 6;
+}
+.how-mobile-widget .hw-gauge-ring .ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 188.4;
+  stroke-dashoffset: 18.8;
+}
+.how-mobile-widget .hw-gauge-val {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  color: var(--accent-light);
+}
+.how-mobile-widget .hw-gauge-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.how-mobile-widget .hw-gauge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  color: var(--text);
+}
+.how-mobile-widget .hw-gauge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Actions log */
+.how-mobile-widget .hw-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.how-mobile-widget .hw-action-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.7rem;
+}
+.how-mobile-widget .hw-action-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.how-mobile-widget .hw-action-dot.live {
+  background: var(--accent-light);
+  box-shadow: 0 0 6px var(--accent-light);
+}
+.how-mobile-widget .hw-action-dot.done {
+  background: rgba(255, 255, 255, 0.3);
+}
+.how-mobile-widget .hw-action-text {
+  flex: 1;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.how-mobile-widget .hw-action-time {
+  font-size: 0.62rem;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .how-mobile { padding: 64px 14px; }
+  .how-mobile-card { padding: 18px 16px; }
+  .how-mobile-step-num { font-size: 2rem; }
+  .how-mobile-card-head h3 { font-size: 0.98rem; }
+}

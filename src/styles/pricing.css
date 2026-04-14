@@ -1,0 +1,181 @@
+/* ============================================================
+PRICING
+============================================================ */
+#pricing {
+background: var(--bg-1);
+}
+#pricing::before {
+content: '';
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 60% 50% at 50% 100%, rgba(124,58,237,0.06), transparent),
+radial-gradient(ellipse 40% 40% at 50% 0%, rgba(124,58,237,0.04), transparent);
+pointer-events: none;
+}
+.pricing-toggle {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin-bottom: 48px;
+}
+.toggle-label {
+font-size: 0.8rem;
+color: var(--muted);
+}
+.toggle-switch {
+position: relative;
+width: 44px; height: 24px;
+background: rgba(124,58,237,0.15);
+border: 1px solid rgba(124,58,237,0.25);
+border-radius: 999px;
+cursor: pointer;
+transition: background 0.25s;
+}
+.toggle-switch.on { background: rgba(124,58,237,0.3); }
+.toggle-knob {
+position: absolute;
+top: 3px; left: 3px;
+width: 16px; height: 16px;
+border-radius: 50%;
+background: var(--accent);
+transition: transform 0.25s var(--ease-out);
+box-shadow: 0 0 8px rgba(124,58,237,0.4);
+}
+.toggle-switch.on .toggle-knob { transform: translateX(20px); }
+.toggle-badge {
+font-size: 0.62rem;
+background: rgba(124,58,237,0.12);
+border: 1px solid rgba(124,58,237,0.2);
+color: var(--accent-light);
+padding: 2px 8px;
+border-radius: 999px;
+letter-spacing: 0.04em;
+}
+.pricing-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+align-items: start;
+}
+.pricing-card {
+background: var(--glass);
+border: 1px solid var(--border-s);
+border-radius: 20px;
+padding: 32px 28px;
+backdrop-filter: blur(12px);
+transition: transform 0.3s var(--ease-out);
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+.pricing-card:hover { transform: translateY(-3px); }
+.pricing-card.featured {
+border: none;
+padding: 33px 29px;
+background: rgba(124,58,237,0.06);
+}
+.pricing-card.featured::before {
+content: '';
+position: absolute;
+inset: 0;
+border-radius: 20px;
+padding: 1px;
+background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--accent-dark));
+-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+pointer-events: none;
+}
+.pricing-popular-badge {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+color: #fff;
+font-size: 0.62rem;
+font-weight: 500;
+letter-spacing: 0.06em;
+padding: 4px 10px;
+border-radius: 999px;
+margin-bottom: 20px;
+}
+.pricing-tier {
+font-size: 0.72rem;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--muted);
+margin-bottom: 6px;
+}
+.pricing-price {
+font-family: var(--font-head);
+font-size: 2.4rem;
+font-weight: 200;
+color: var(--heading);
+letter-spacing: -0.04em;
+line-height: 1;
+margin-bottom: 4px;
+}
+.pricing-price sup { font-size: 1rem; vertical-align: super; }
+.pricing-price-note {
+font-size: 0.72rem;
+color: var(--muted);
+margin-bottom: 20px;
+}
+.pricing-desc {
+font-size: 0.78rem;
+color: var(--muted);
+line-height: 1.6;
+margin-bottom: 24px;
+padding-bottom: 24px;
+border-bottom: 1px solid var(--border-s);
+}
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; flex: 1; }
+.pricing-feature {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+font-size: 0.78rem;
+color: var(--text);
+}
+.pricing-check {
+color: var(--accent);
+font-size: 0.9rem;
+flex-shrink: 0;
+margin-top: 1px;
+}
+.pricing-cta {
+width: 100%;
+padding: 12px;
+border-radius: 10px;
+font-family: var(--font-body);
+font-size: 0.84rem;
+font-weight: 400;
+cursor: pointer;
+transition: all 0.25s;
+text-align: center;
+}
+.pricing-cta-ghost {
+background: transparent;
+border: 1px solid var(--border-m);
+color: var(--text);
+}
+.pricing-cta-ghost:hover {
+border-color: var(--accent);
+color: var(--accent);
+box-shadow: 0 0 16px rgba(124,58,237,0.15);
+}
+.pricing-cta-solid {
+background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+border: none;
+color: #fff;
+box-shadow: 0 4px 20px rgba(124,58,237,0.25);
+}
+.pricing-cta-solid:hover {
+box-shadow: 0 8px 32px rgba(124,58,237,0.4);
+transform: translateY(-1px);
+}

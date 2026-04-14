@@ -1,0 +1,18 @@
+---
+import { metrics } from '../data/site';
+const items = [...metrics, ...metrics];
+---
+
+<section id="metrics">
+  <div class="metrics-wrap">
+    <div class="metrics-track" id="metricsTrack">
+      {items.map((m) => (
+        <div class="metric-pill">
+          <div class="metric-dot"></div>
+          <span class="metric-val">{m.value}</span>
+          <span class="metric-label">{m.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

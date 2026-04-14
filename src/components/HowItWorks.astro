@@ -1,0 +1,329 @@
+---
+import { how } from '../data/site';
+---
+
+<section id="how">
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       DESKTOP VARIANT — sticky scroll + left column + 4 depth panels
+       ============================================================ -->
+  <div class="how-desktop">
+    <div class="how-sticky" id="howSticky">
+      <div class="how-bg-orb how-bg-orb-1" id="howOrb1"></div>
+      <div class="how-bg-orb how-bg-orb-2" id="howOrb2"></div>
+      <div class="how-bg-dots"></div>
+
+      <div class="how-inner">
+        <div class="how-left">
+          <span class="section-label" style="opacity:1">{how.label}</span>
+          <div class="how-step-counter">
+            <div class="how-big-num" id="howBigNum">01</div>
+            <div class="how-big-num-fill" id="howBigNumFill">01</div>
+          </div>
+          <div class="how-left-label visible" id="howLabel">Etapa 1 de 4</div>
+          <div class="how-left-title visible" id="howTitle">{how.steps[0].title}</div>
+          <div class="how-progress"><div class="how-progress-fill" id="howProgressFill"></div></div>
+          <div class="how-dots">
+            {how.steps.map((_, i) => (
+              <div class={`how-dot ${i === 0 ? 'active' : ''}`} data-step={i}></div>
+            ))}
+          </div>
+        </div>
+
+        <div class="how-right">
+          {how.steps.map((s, i) => (
+            <div class={`how-panel ${i === 0 ? 'active' : ''}`} data-panel={i}>
+              <div class="hp-grid"></div>
+              <div class="hp-shimmer"></div>
+              <div class="hp-corner hp-corner-tl"></div>
+              <div class="hp-corner hp-corner-tr"></div>
+              <div class="hp-corner hp-corner-br"></div>
+              <div class="hp-header">
+                <div class="hp-live-dot"></div>
+                <span class="hp-header-title">{s.title}</span>
+                <span class="hp-header-badge">{s.badge}</span>
+              </div>
+              <div class="hp-body">
+                <p>{s.description}</p>
+                <div class="how-panel-widget">
+                  <div class="hw-status-row">
+                    <span class="hw-status-label">{s.statusLabel}</span>
+                    <span class="hw-status-val">{s.statusValue}</span>
+                  </div>
+
+                  {s.items && (
+                    <div class="hw-integrations">
+                      {s.items.map((it) => (
+                        <span class={`hw-int-pill ${it.status === 'on' ? 'glow' : ''}`}>
+                          <span class={`hw-status-dot ${it.status}`}></span>
+                          {it.label}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {s.funnel && (
+                    <div class="hw-funnel">
+                      {s.funnel.map((f) => (
+                        <div class="hw-funnel-row">
+                          <span class="hw-funnel-label">{f.label}</span>
+                          <div class="hw-funnel-bar-wrap"><div class="hw-funnel-bar" style={`width:${f.width}%`}></div></div>
+                          <span class="hw-funnel-pct">{f.pct}%</span>
+                          <span class="hw-funnel-val">{f.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {s.gauge !== undefined && (
+                    <div class="hw-gauge">
+                      <div class="hw-gauge-ring">
+                        <svg viewBox="0 0 72 72">
+                          <circle class="ring-bg" cx="36" cy="36" r="30"></circle>
+                          <circle class="ring-fill" cx="36" cy="36" id="hwGaugeRing" r="30"></circle>
+                        </svg>
+                        <div class="hw-gauge-val">{s.gauge}%</div>
+                      </div>
+                      <div class="hw-gauge-meta">
+                        {s.gaugeRows?.map((r) => (
+                          <div class="hw-gauge-row">
+                            <div class="hw-gauge-dot" style={`background:${r.color}`}></div>
+                            {r.label}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {s.actions && (
+                    <div class="hw-actions">
+                      {s.actions.map((a) => (
+                        <div class="hw-action-row">
+                          <div class={`hw-action-dot ${a.state}`}></div>
+                          <span class="hw-action-text">{a.text}</span>
+                          <span class="hw-action-time">{a.time}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MOBILE VARIANT — simple vertical list, no sticky, no depth
+       ============================================================ -->
+  <div class="how-mobile">
+    <div class="how-mobile-intro">
+      <span class="section-label">{how.label}</span>
+      <h2>
+        {how.title} <span class="text-gradient">{how.titleAccent}</span>
+      </h2>
+      <p>{how.description}</p>
+    </div>
+
+    <div class="how-mobile-list">
+      {how.steps.map((s) => (
+        <article class="how-mobile-card">
+          <div class="how-mobile-card-head">
+            <span class="how-mobile-step-num">0{s.step}</span>
+            <div>
+              <h3>{s.title}</h3>
+              <span class="how-mobile-badge">{s.badge}</span>
+            </div>
+          </div>
+
+          <p>{s.description}</p>
+
+          <div class="how-mobile-widget">
+            <div class="hw-status-row">
+              <span class="hw-status-label">{s.statusLabel}</span>
+              <span class="hw-status-val">{s.statusValue}</span>
+            </div>
+
+            {s.items && (
+              <div class="hw-integrations">
+                {s.items.map((it) => (
+                  <span class="hw-int-pill">
+                    <span class={`hw-status-dot ${it.status}`}></span>
+                    {it.label}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {s.funnel && (
+              <div class="hw-funnel">
+                {s.funnel.map((f) => (
+                  <div class="hw-funnel-row">
+                    <span class="hw-funnel-label">{f.label}</span>
+                    <div class="hw-funnel-bar-wrap"><div class="hw-funnel-bar" style={`width:${f.width}%`}></div></div>
+                    <span class="hw-funnel-pct">{f.pct}%</span>
+                    <span class="hw-funnel-val">{f.value}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {s.gauge !== undefined && (
+              <div class="hw-gauge">
+                <div class="hw-gauge-ring">
+                  <svg viewBox="0 0 72 72">
+                    <circle class="ring-bg" cx="36" cy="36" r="30"></circle>
+                    <circle class="ring-fill" cx="36" cy="36" r="30"></circle>
+                  </svg>
+                  <div class="hw-gauge-val">{s.gauge}%</div>
+                </div>
+                <div class="hw-gauge-meta">
+                  {s.gaugeRows?.map((r) => (
+                    <div class="hw-gauge-row">
+                      <div class="hw-gauge-dot" style={`background:${r.color}`}></div>
+                      {r.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {s.actions && (
+              <div class="hw-actions">
+                {s.actions.map((a) => (
+                  <div class="hw-action-row">
+                    <div class={`hw-action-dot ${a.state}`}></div>
+                    <span class="hw-action-text">{a.text}</span>
+                    <span class="hw-action-time">{a.time}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // ─── How It Works: dual-layout coordinator ───
+  //
+  // We render BOTH .how-desktop and .how-mobile in the DOM. The visible one
+  // is chosen by @media query + a JS-driven .is-mobile class on #how (double
+  // gatilho — if media fails, the class hits via !important).
+  //
+  // The scroll controller (sticky scroll panels) only runs on desktop. On
+  // mobile, early exit — the mobile markup is a simple static list.
+
+  const howSection = document.getElementById('how') as HTMLElement | null;
+  const mobileMQ = window.matchMedia('(max-width: 991px)');
+
+  // --- desktop scroll controller state ---
+  const howPanels = document.querySelectorAll('.how-desktop .how-panel');
+  const howDots = document.querySelectorAll('.how-desktop .how-dot');
+  const howBigNum = document.getElementById('howBigNum');
+  const howBigNumFill = document.getElementById('howBigNumFill');
+  const howLabel = document.getElementById('howLabel');
+  const howTitle = document.getElementById('howTitle');
+  const howProgressFill = document.getElementById('howProgressFill');
+  const howOrb1 = document.getElementById('howOrb1');
+  const howOrb2 = document.getElementById('howOrb2');
+
+  const steps = [
+    { num: '01', label: 'Etapa 1 de 4', title: 'Diagnóstico' },
+    { num: '02', label: 'Etapa 2 de 4', title: 'Estratégia & Design' },
+    { num: '03', label: 'Etapa 3 de 4', title: 'Construção & Integração' },
+    { num: '04', label: 'Etapa 4 de 4', title: 'Ativação & Otimização' },
+  ];
+
+  let currentStep = -1;
+  let gaugeDrawn = false;
+  let scrollAttached = false;
+
+  function updateStep(step: number) {
+    if (step === currentStep) return;
+    currentStep = step;
+    const s = steps[step];
+
+    if (howBigNum) howBigNum.textContent = s.num;
+    if (howBigNumFill) {
+      howBigNumFill.textContent = s.num;
+      howBigNumFill.classList.remove('visible');
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => howBigNumFill.classList.add('visible')),
+      );
+    }
+
+    howLabel?.classList.remove('visible');
+    howTitle?.classList.remove('visible');
+    setTimeout(() => {
+      if (howLabel) howLabel.textContent = s.label;
+      if (howTitle) howTitle.textContent = s.title;
+      howLabel?.classList.add('visible');
+      howTitle?.classList.add('visible');
+    }, 120);
+
+    howPanels.forEach((p, i) => {
+      p.classList.remove('active', 'behind');
+      if (i === step) p.classList.add('active');
+      else if (i < step) p.classList.add('behind');
+    });
+
+    howDots.forEach((d, i) => d.classList.toggle('active', i === step));
+
+    const ox = step * 15;
+    const oy = step * 10;
+    if (howOrb1) howOrb1.style.transform = `translate(${ox}px, ${-oy}px)`;
+    if (howOrb2) howOrb2.style.transform = `translate(${-ox}px, ${oy}px)`;
+
+    if (step === 2 && !gaugeDrawn) {
+      gaugeDrawn = true;
+      const ring = document.getElementById('hwGaugeRing');
+      if (ring) setTimeout(() => ring.classList.add('drawn'), 300);
+    }
+  }
+
+  function onScroll() {
+    if (!howSection || !howProgressFill) return;
+    const rect = howSection.getBoundingClientRect();
+    const sectionH = howSection.offsetHeight;
+    const viewH = window.innerHeight;
+    const scrolled = -rect.top;
+    const scrollRange = sectionH - viewH;
+    if (scrollRange <= 0) return;
+    const progress = Math.max(0, Math.min(1, scrolled / scrollRange));
+    howProgressFill.style.width = progress * 100 + '%';
+    const step = Math.min(3, Math.floor(progress * 4));
+    updateStep(step);
+  }
+
+  function attachScroll() {
+    if (scrollAttached) return;
+    window.addEventListener('scroll', onScroll, { passive: true });
+    scrollAttached = true;
+    onScroll();
+  }
+
+  function detachScroll() {
+    if (!scrollAttached) return;
+    window.removeEventListener('scroll', onScroll);
+    scrollAttached = false;
+  }
+
+  function applyMode() {
+    if (!howSection) return;
+    const isMobile = mobileMQ.matches;
+    howSection.classList.toggle('is-mobile', isMobile);
+    if (isMobile) detachScroll();
+    else attachScroll();
+  }
+
+  if (howSection) {
+    applyMode();
+    mobileMQ.addEventListener('change', applyMode);
+  }
+</script>

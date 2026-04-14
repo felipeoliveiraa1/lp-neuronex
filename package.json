@@ -1,13 +1,22 @@
 {
   "name": "lp-neuro-nex",
+  "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "NeuroNex landing page (static export from Framer, optimized for Vercel)",
+  "description": "NeuroNex landing page — Astro static build",
   "scripts": {
-    "dev": "serve public -l 4321",
-    "start": "serve public -l 4321"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.1.1",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "serve": "^14.2.4"
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.2"
   }
 }

@@ -1,0 +1,24 @@
+/* ============================================================
+RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+background: var(--bg-0);
+color: var(--text);
+font-family: var(--font-body);
+font-weight: 300;
+font-size: 0.9rem;
+line-height: 1.7;
+overflow-x: clip;
+}
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.03;
+  background-image: radial-gradient(circle at 25% 25%, rgba(167,139,250,0.03) 0%, transparent 50%);
+}

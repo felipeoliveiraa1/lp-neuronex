@@ -1,0 +1,13 @@
+---
+import { trust } from '../data/site';
+const items = [...trust.logos, ...trust.logos];
+---
+
+<section id="trust">
+  <p class="trust-label">{trust.label}</p>
+  <div class="logo-bar-wrap">
+    <div class="logo-track" id="logoTrack">
+      {items.map((logo) => <span class="logo-item">{logo}</span>)}
+    </div>
+  </div>
+</section>

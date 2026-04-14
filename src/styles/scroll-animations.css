@@ -1,0 +1,35 @@
+/* ============================================================
+SCROLL ANIMATIONS
+============================================================ */
+.reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal-left {
+opacity: 0;
+transform: translateX(-40px);
+transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal-right {
+opacity: 0;
+transform: translateX(40px);
+transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal.active, .reveal-left.active, .reveal-right.active {
+opacity: 1;
+transform: translate(0, 0);
+}
+.reveal-child {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.stagger-up.active .reveal-child { opacity: 1; transform: translateY(0); }
+.stagger-up.active .reveal-child:nth-child(1) { transition-delay: 0.05s; }
+.stagger-up.active .reveal-child:nth-child(2) { transition-delay: 0.12s; }
+.stagger-up.active .reveal-child:nth-child(3) { transition-delay: 0.19s; }
+.stagger-up.active .reveal-child:nth-child(4) { transition-delay: 0.26s; }
+.stagger-up.active .reveal-child:nth-child(5) { transition-delay: 0.33s; }
+.stagger-up.active .reveal-child:nth-child(6) { transition-delay: 0.40s; }
+.how-mobile-header { display: none; }

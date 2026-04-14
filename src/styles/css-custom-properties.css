@@ -1,0 +1,23 @@
+/* ============================================================
+CSS CUSTOM PROPERTIES
+============================================================ */
+:root {
+--bg-0: #060610;
+--bg-1: #0A0A18;
+--bg-2: #0D0D1F;
+--accent: #7c3aed;
+--accent-dark: #6d28d9;
+--accent-light: #a78bfa;
+--text: #E8E8ED;
+--heading: #FAFAFA;
+--muted: rgba(255,255,255,0.45);
+--glass: rgba(255,255,255,0.03);
+--border-s: rgba(124,58,237,0.12);
+--border-m: rgba(124,58,237,0.20);
+--border-l: rgba(124,58,237,0.30);
+--glow-sm: 0 0 20px rgba(124,58,237,0.15);
+--glow-md: 0 0 40px rgba(124,58,237,0.20);
+--font-body: 'Inter', sans-serif;
+--font-head: 'Outfit', sans-serif;
+--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

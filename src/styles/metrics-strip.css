@@ -1,0 +1,71 @@
+/* ============================================================
+METRICS STRIP
+============================================================ */
+#metrics {
+position: relative;
+padding: 28px 0;
+background: var(--bg-0);
+border-bottom: 1px solid var(--border-s);
+overflow: hidden;
+}
+#metrics::before {
+content: '';
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(124,58,237,0.04), transparent);
+pointer-events: none;
+}
+.metrics-wrap {
+position: relative;
+overflow: hidden;
+}
+.metrics-wrap::before,
+.metrics-wrap::after {
+content: '';
+position: absolute;
+top: 0; bottom: 0;
+width: 100px;
+z-index: 2;
+pointer-events: none;
+}
+.metrics-wrap::before { left: 0; background: linear-gradient(to right, var(--bg-0), transparent); }
+.metrics-wrap::after { right: 0; background: linear-gradient(to left, var(--bg-0), transparent); }
+.metrics-track {
+display: flex;
+align-items: center;
+width: max-content;
+animation: metrics-scroll 20s linear infinite;
+}
+.metrics-wrap:hover .metrics-track { animation-play-state: paused; }
+.metric-pill {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 0 40px;
+border-right: 1px solid rgba(124,58,237,0.12);
+white-space: nowrap;
+}
+.metric-val {
+font-family: var(--font-head);
+font-size: 1.1rem;
+font-weight: 300;
+color: var(--accent-light);
+letter-spacing: -0.02em;
+}
+.metric-label {
+font-size: 0.72rem;
+font-weight: 400;
+color: var(--muted);
+letter-spacing: 0.04em;
+}
+.metric-dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(--accent);
+box-shadow: 0 0 8px var(--accent);
+flex-shrink: 0;
+}
+@keyframes metrics-scroll {
+from { transform: translateX(0); }
+to { transform: translateX(-50%); }
+}
