@@ -11,7 +11,7 @@ import '../../styles/typography.css';
 // CUSTOMIZE: dados da proposta
 const proposta = {
   cliente: {
-    nome: 'Sócios',
+    nome: 'Sérgio',
     curso: 'Curso de Amazon',
     alunos: 150,
   },
@@ -32,7 +32,7 @@ const whatsappUrl = `https://wa.me/${proposta.whatsapp}?text=${whatsappMsg}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>NeuroNex — Proposta de Parceria</title>
+    <title>NeuroNex × {proposta.cliente.nome} — Proposta de Parceria</title>
     <meta
       name="description"
       content="Proposta estratégica de parceria NeuroNex para a construção de uma plataforma sob medida."
