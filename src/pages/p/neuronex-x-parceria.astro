@@ -1,0 +1,1864 @@
+---
+/*
+ * NEURONEX — Proposta de Parceria Estratégica
+ *
+ * Rota: src/pages/p/neuronex-x-parceria.astro
+ * URL:  https://lp-neuronex.vercel.app/p/neuronex-x-parceria
+ *
+ * Customização rápida (procure por /** CUSTOMIZE */):
+ *   - Nome dos sócios
+ *   - Nome do curso
+ *   - Número do WhatsApp
+ *   - Token de acesso (opcional)
+ *
+ * Proteção de link: adicione ?t=SEU_TOKEN na URL. A página valida
+ * client-side e redireciona pra / se o token não bater.
+ */
+
+/** CUSTOMIZE: dados da proposta */
+const proposta = {
+  cliente: {
+    nome: "Nome dos Sócios",
+    curso: "Curso de Amazon",
+    alunos: 150,
+  },
+  whatsapp: "5511968141852",
+  token: "af2026",
+  numeros: {
+    investimento: "10.000",
+    equity: "30%",
+    prazo: "4 a 6 semanas",
+    ticketMedio: 150,
+    custoOperacional: 825,
+  },
+};
+
+const whatsappMsg = encodeURIComponent(
+  `Olá! Acabei de ler a proposta da NeuroNex e gostaria de conversar.`
+);
+const whatsappUrl = `https://wa.me/${proposta.whatsapp}?text=${whatsappMsg}`;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>NeuroNex × {proposta.cliente.nome} — Proposta de Parceria</title>
+    <meta
+      name="description"
+      content="Proposta de parceria estratégica para desenvolvimento da plataforma de análise Amazon."
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body data-token={proposta.token}>
+    <!-- ============ BG GLOW DECORATIVOS ============ -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- ============ NAV ============ -->
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="logo">
+          <span class="logo-mark">N</span>
+          <span class="logo-text">NeuroNex</span>
+        </div>
+        <a href={whatsappUrl} class="btn btn-ghost" target="_blank" rel="noopener">
+          Falar agora
+        </a>
+      </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="section hero">
+      <div class="container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Proposta confidencial · {new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
+        </div>
+
+        <h1 class="hero-title">
+          Parceria Estratégica<br />
+          <span class="text-gradient">NeuroNex × {proposta.cliente.nome}</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Tecnologia sob medida para construir, lançar e manter a plataforma de
+          análise Amazon do seu negócio.
+        </p>
+
+        <div class="hero-numbers">
+          <div class="hero-number">
+            <div class="hero-number-label">Investimento técnico</div>
+            <div class="hero-number-value">R$ {proposta.numeros.investimento}</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-number">
+            <div class="hero-number-label">Participação societária</div>
+            <div class="hero-number-value">{proposta.numeros.equity}</div>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-number">
+            <div class="hero-number-label">Manutenção contínua</div>
+            <div class="hero-number-value">Inclusa</div>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href={whatsappUrl} class="btn btn-primary" target="_blank" rel="noopener">
+            Agendar conversa
+          </a>
+          <a href="#proposta" class="btn btn-ghost">Ver proposta completa ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 1 — CREDIBILIDADE ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Quem somos</div>
+        <h2 class="section-title">
+          Você não está contratando<br />
+          <span class="text-muted">um desenvolvedor avulso.</span>
+        </h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" data-count="50">+50</div>
+            <div class="stat-label">Projetos entregues</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-count="98">98%</div>
+            <div class="stat-label">Satisfação dos clientes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-count="8">+8</div>
+            <div class="stat-label">Anos de mercado</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Suporte dedicado</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">6h</div>
+            <div class="stat-label">Resposta média</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Sob medida</div>
+          </div>
+        </div>
+
+        <p class="section-lead">
+          A NeuroNex é uma empresa de tecnologia com mais de oito anos
+          construindo soluções sob medida para empresas que querem crescer.
+          Entregamos sistemas, agentes de IA, landing pages e integrações com
+          qualidade de agência e compromisso de parceiro de longo prazo.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 2 — O PRODUTO ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">O produto</div>
+        <h2 class="section-title">
+          Plataforma completa de<br />
+          <span class="text-gradient">análise Amazon.</span>
+        </h2>
+
+        <div class="grid-2">
+          <ul class="feature-list">
+            <li>Extensão Chrome integrada à Amazon Brasil</li>
+            <li>Projeção de vendas mensais e faturamento estimado</li>
+            <li>Calculadora de lucro com modelos FBA, DBA e OnSite</li>
+            <li>Lucro, margem e ROI calculados em tempo real</li>
+            <li>Histórico de preço, BSR e Buy Box (30, 90 e 365 dias)</li>
+            <li>Análise de concorrentes (FBA vs FBM, rating e preço)</li>
+            <li>Campeão do Buy Box com percentual de participação</li>
+            <li>Assistente de IA para mentoria personalizada</li>
+            <li>Sistema de favoritos e alertas de preço</li>
+            <li>Cache próprio com performance alta e custo baixo</li>
+          </ul>
+
+          <!-- PREVIEW / IFRAME EMBED -->
+          <div class="preview-wrap">
+            <div class="preview-frame">
+              <div class="preview-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="preview-url">amazon.com.br/dp/B0B1N25YY5</span>
+              </div>
+              <!--
+                CUSTOMIZE: trocar src pelo URL do protótipo/demo
+                Pode ser um vídeo Loom embeddado, um screenshot animado,
+                ou um iframe real do protótipo hospedado.
+
+                Exemplos:
+                  <iframe src="https://www.loom.com/embed/SEU_VIDEO_ID" ...></iframe>
+                  <iframe src="https://protótipo.neuronex.digital" ...></iframe>
+              -->
+              <div class="preview-content">
+                <div class="preview-placeholder">
+                  <div class="preview-icon">▶</div>
+                  <div>Demo da extensão em funcionamento</div>
+                  <div class="preview-small">Pré-visualização será exibida aqui</div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-caption">
+              Protótipo ao vivo — extensão rodando em página real da Amazon
+            </div>
+          </div>
+        </div>
+
+        <p class="section-lead">
+          O aluno toma decisão de compra de produto em segundos, não em horas.
+          Todos os dados críticos num único painel, direto na página do produto
+          da Amazon.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 3 — MÉTODO 4 ETAPAS ============ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-label">Nosso processo</div>
+        <h2 class="section-title">
+          Método NeuroNex<br />
+          <span class="text-muted">aplicado ao seu projeto.</span>
+        </h2>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h3 class="step-title">Diagnóstico e Estratégia</h3>
+            <p class="step-desc">
+              Mapeamento completo de endpoints, fluxos de usuário, fórmulas
+              de cálculo e requisitos operacionais. Esta etapa já foi
+              concluída: 29 endpoints mapeados, 23 respostas reais capturadas
+              e fórmulas validadas.
+            </p>
+            <div class="step-tag">Etapa concluída</div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Design de Sistema e Arquitetura</h3>
+            <p class="step-desc">
+              Definição de stack, schema de banco, pontos de integração com
+              Keepa e OpenAI, design system visual e fluxos de autenticação.
+            </p>
+            <div class="step-tag">Etapa concluída</div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">03</div>
+            <h3 class="step-title">Construção e Integração</h3>
+            <p class="step-desc">
+              Desenvolvimento da extensão Chrome, backend proxy cacheado,
+              painel de configurações, testes automatizados, deploy e
+              publicação na Chrome Web Store.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-num">04</div>
+            <h3 class="step-title">Ativação e Otimização Contínua</h3>
+            <p class="step-desc">
+              Lançamento para os primeiros alunos, monitoramento em tempo
+              real, correções e otimizações baseadas em uso real da
+              plataforma.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 4 — STACK ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Stack profissional</div>
+        <h2 class="section-title">
+          Tecnologia de ponta,<br />
+          <span class="text-muted">sem improviso.</span>
+        </h2>
+
+        <div class="stack-grid">
+          {[
+            "Next.js",
+            "NestJS",
+            "TypeScript",
+            "PostgreSQL",
+            "Supabase",
+            "Vercel",
+            "Railway",
+            "OpenAI",
+            "Claude",
+            "Stripe",
+            "GitHub",
+            "Sentry",
+          ].map((tech) => (
+            <div class="stack-item">{tech}</div>
+          ))}
+        </div>
+
+        <div class="stack-metrics">
+          <div class="stack-metric">
+            <div class="stack-metric-value">99.9%</div>
+            <div class="stack-metric-label">Uptime garantido</div>
+          </div>
+          <div class="stack-metric">
+            <div class="stack-metric-value">+85%</div>
+            <div class="stack-metric-label">Cobertura de testes</div>
+          </div>
+          <div class="stack-metric">
+            <div class="stack-metric-value">0</div>
+            <div class="stack-metric-label">Incidentes críticos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 5 — ENGENHARIA REVERSA JÁ FEITA ============ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-label">Descoberta técnica concluída</div>
+        <h2 class="section-title">
+          80% do trabalho<br />
+          <span class="text-gradient">já está entregue.</span>
+        </h2>
+
+        <div class="assets-grid">
+          <div class="asset-card">
+            <div class="asset-num">29</div>
+            <div class="asset-label">Endpoints mapeados</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-num">23</div>
+            <div class="asset-label">Bodies de API capturados</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-num">100%</div>
+            <div class="asset-label">Fórmulas validadas</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-num">4</div>
+            <div class="asset-label">Tabelas de taxas Amazon prontas</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-num">1</div>
+            <div class="asset-label">Schema de banco desenhado</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-num">60%</div>
+            <div class="asset-label">Redução no tempo de dev</div>
+          </div>
+        </div>
+
+        <p class="section-lead">
+          Toda a análise técnica já foi executada pela NeuroNex. Entramos no
+          projeto com o caminho crítico pavimentado: zero risco de descoberta,
+          estimativa de prazo validada, stack definida.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 6 — VALOR DE MERCADO ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Valor de mercado</div>
+        <h2 class="section-title">
+          O que vocês<br />
+          <span class="text-gradient">economizam com a NeuroNex.</span>
+        </h2>
+
+        <div class="pricing-table">
+          <div class="pricing-row">
+            <div class="pricing-label">Agência especializada</div>
+            <div class="pricing-value pricing-old">R$ 80.000 a R$ 120.000</div>
+          </div>
+          <div class="pricing-row">
+            <div class="pricing-label">Freelancer sênior</div>
+            <div class="pricing-value pricing-old">R$ 40.000 a R$ 60.000</div>
+          </div>
+          <div class="pricing-row">
+            <div class="pricing-label">Manutenção mensal externa</div>
+            <div class="pricing-value pricing-old">R$ 4.000 a R$ 8.000/mês</div>
+          </div>
+          <div class="pricing-row pricing-featured">
+            <div class="pricing-label">
+              <strong>Proposta NeuroNex</strong>
+            </div>
+            <div class="pricing-value pricing-new">R$ 10.000 único</div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-num">R$ 50k a R$ 100k</div>
+          <div class="highlight-text">
+            de economia imediata — o equivalente a um investidor entrando na
+            operação sem exigir retorno imediato.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 7 — A PROPOSTA (PILARES) ============ -->
+    <section id="proposta" class="section section-alt">
+      <div class="container">
+        <div class="section-label">A proposta</div>
+        <h2 class="section-title">
+          Três pilares da<br />
+          <span class="text-gradient">nossa sociedade.</span>
+        </h2>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">01</div>
+            <div class="pillar-title">Investimento técnico</div>
+            <div class="pillar-value">R$ 10.000</div>
+            <p class="pillar-desc">
+              Pagos em 3 parcelas durante a execução do MVP. 40% na
+              assinatura, 30% no marco intermediário, 30% na entrega final.
+            </p>
+          </div>
+
+          <div class="pillar pillar-featured">
+            <div class="pillar-badge">Principal</div>
+            <div class="pillar-icon">02</div>
+            <div class="pillar-title">Participação societária</div>
+            <div class="pillar-value">30%</div>
+            <p class="pillar-desc">
+              Equity da NeuroNex na nova empresa, com vesting de 4 anos e
+              cliff de 1 ano. Padrão de mercado para cofundador técnico
+              único.
+            </p>
+          </div>
+
+          <div class="pillar">
+            <div class="pillar-icon">03</div>
+            <div class="pillar-title">Manutenção contínua</div>
+            <div class="pillar-value">Inclusa</div>
+            <p class="pillar-desc">
+              Correções, atualizações e manutenção técnica inclusas enquanto
+              a sociedade existir. Sem cobrança por hora, sem contrato
+              paralelo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 8 — INCLUÍDO vs FORA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Escopo detalhado</div>
+        <h2 class="section-title">
+          O que está incluído<br />
+          <span class="text-muted">e o que fica fora.</span>
+        </h2>
+
+        <div class="scope-grid">
+          <div class="scope-card scope-in">
+            <div class="scope-title">
+              <span class="scope-icon scope-icon-in">✓</span>
+              Incluído sem custo adicional
+            </div>
+            <ul>
+              <li>Correção de bugs e falhas do sistema</li>
+              <li>Atualizações de compatibilidade com Amazon e Keepa</li>
+              <li>Ajustes de performance e otimizações</li>
+              <li>Atualização de dependências e patches de segurança</li>
+              <li>Manutenção de infraestrutura e monitoramento 24/7</li>
+              <li>Suporte técnico interno para os sócios</li>
+              <li>Pequenos ajustes de interface solicitados pela operação</li>
+            </ul>
+          </div>
+
+          <div class="scope-card scope-out">
+            <div class="scope-title">
+              <span class="scope-icon scope-icon-out">→</span>
+              Projetos novos (negociados em separado)
+            </div>
+            <ul>
+              <li>Aplicativos mobile iOS e Android</li>
+              <li>Expansão para outros marketplaces (Mercado Livre, Shopee)</li>
+              <li>Sistemas adicionais (CRM, ERP, automações complexas)</li>
+              <li>Migrações arquiteturais por mudança de modelo de negócio</li>
+            </ul>
+            <div class="scope-note">
+              A NeuroNex segue como fornecedor técnico natural, com desconto
+              de parceria em todos os novos projetos.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 9 — CALCULADORA ROI INTERATIVA ============ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-label">Simulador de retorno</div>
+        <h2 class="section-title">
+          Veja o potencial<br />
+          <span class="text-gradient">em números reais.</span>
+        </h2>
+
+        <p class="section-lead">
+          Ajuste os sliders abaixo com as suas premissas. A calculadora projeta
+          receita mensal, parte de cada sócio e breakeven do investimento.
+        </p>
+
+        <div class="calculator">
+          <div class="calculator-inputs">
+            <div class="calc-input">
+              <label>
+                Taxa de conversão dos {proposta.cliente.alunos} alunos
+                <strong id="out-conversao">30%</strong>
+              </label>
+              <input
+                type="range"
+                id="conv"
+                min="5"
+                max="100"
+                value="30"
+                step="5"
+              />
+              <div class="calc-hint">
+                <span>5%</span>
+                <span>100%</span>
+              </div>
+            </div>
+
+            <div class="calc-input">
+              <label>
+                Ticket mensal por cliente
+                <strong id="out-ticket">R$ 150</strong>
+              </label>
+              <input
+                type="range"
+                id="ticket"
+                min="50"
+                max="500"
+                value="150"
+                step="10"
+              />
+              <div class="calc-hint">
+                <span>R$ 50</span>
+                <span>R$ 500</span>
+              </div>
+            </div>
+
+            <div class="calc-input">
+              <label>
+                Meses de projeção
+                <strong id="out-meses">12 meses</strong>
+              </label>
+              <input
+                type="range"
+                id="meses"
+                min="3"
+                max="36"
+                value="12"
+                step="3"
+              />
+              <div class="calc-hint">
+                <span>3 meses</span>
+                <span>36 meses</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calculator-outputs">
+            <div class="calc-output">
+              <div class="calc-output-label">Clientes ativos</div>
+              <div class="calc-output-value" id="out-clientes">45</div>
+            </div>
+
+            <div class="calc-output">
+              <div class="calc-output-label">Receita mensal</div>
+              <div class="calc-output-value" id="out-mrr">R$ 6.750</div>
+            </div>
+
+            <div class="calc-output">
+              <div class="calc-output-label">Lucro mensal (após custos)</div>
+              <div class="calc-output-value" id="out-lucro">R$ 5.925</div>
+            </div>
+
+            <div class="calc-output calc-output-highlight">
+              <div class="calc-output-label">Receita total no período</div>
+              <div class="calc-output-value" id="out-total">R$ 81.000</div>
+            </div>
+
+            <div class="calc-output">
+              <div class="calc-output-label">Parte NeuroNex (30%)</div>
+              <div class="calc-output-value" id="out-neuronex">R$ 21.330</div>
+            </div>
+
+            <div class="calc-output">
+              <div class="calc-output-label">Parte de cada sócio (35%)</div>
+              <div class="calc-output-value" id="out-socio">R$ 24.885</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 10 — CRONOGRAMA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Cronograma</div>
+        <h2 class="section-title">
+          Plataforma no ar em<br />
+          <span class="text-gradient">{proposta.numeros.prazo}.</span>
+        </h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-week">Semanas 1-2</div>
+            <h4>Sprint 1 · Fundação</h4>
+            <p>Backend, auth, banco de dados, tabelas de taxas, OAuth.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-week">Semana 3</div>
+            <h4>Sprint 2 · Integração</h4>
+            <p>Keepa API, proxy cacheado, endpoints de histórico e Buy Box.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-week">Semanas 4-5</div>
+            <h4>Sprint 3 · Interface</h4>
+            <p>Extensão Chrome, análises, calculadora, gráficos.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-week">Semana 6</div>
+            <h4>Sprint 4 · Lançamento</h4>
+            <p>Assistente de IA, alertas, Chrome Web Store, landing page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 11 — CUSTOS OPERACIONAIS ============ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-label">Operação</div>
+        <h2 class="section-title">
+          Estrutura enxuta,<br />
+          <span class="text-gradient">margem alta.</span>
+        </h2>
+
+        <div class="cost-table">
+          <div class="cost-row">
+            <span>Keepa API Pro</span>
+            <span>R$ 275/mês</span>
+          </div>
+          <div class="cost-row">
+            <span>Infraestrutura (servidor, banco, cache)</span>
+            <span>R$ 150/mês</span>
+          </div>
+          <div class="cost-row">
+            <span>OpenAI / Claude (assistente de IA)</span>
+            <span>R$ 300/mês</span>
+          </div>
+          <div class="cost-row">
+            <span>Domínio, SSL, monitoramento, analytics</span>
+            <span>R$ 100/mês</span>
+          </div>
+          <div class="cost-row cost-row-total">
+            <span><strong>Total operacional</strong></span>
+            <span><strong>R$ 825/mês</strong></span>
+          </div>
+        </div>
+
+        <div class="margin-note">
+          <strong>Margem bruta estimada:</strong> 80% a 90% sobre cada assinatura recorrente.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 12 — GANHA-GANHA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Alinhamento</div>
+        <h2 class="section-title">
+          O que cada parte<br />
+          <span class="text-muted">traz para a mesa.</span>
+        </h2>
+
+        <div class="parts-grid">
+          <div class="part-card">
+            <div class="part-label">Sócios de negócio</div>
+            <h3>Distribuição e operação</h3>
+            <ul>
+              <li>Acesso direto à base de {proposta.cliente.alunos} alunos</li>
+              <li>Operação de vendas, marketing e suporte</li>
+              <li>Marca do curso e autoridade no nicho</li>
+              <li>Capital de giro para custos operacionais</li>
+            </ul>
+          </div>
+
+          <div class="part-card part-card-featured">
+            <div class="part-label">NeuroNex (sócia técnica)</div>
+            <h3>Tecnologia e continuidade</h3>
+            <ul>
+              <li>Desenvolvimento completo do produto</li>
+              <li>Manutenção e evolução técnica contínua</li>
+              <li>Responsabilidade por disponibilidade e performance</li>
+              <li>Investimento em trabalho abaixo do mercado (R$ 50-100k)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 13 — CLÁUSULAS ============ -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-label">Contrato de sociedade</div>
+        <h2 class="section-title">
+          Estrutura segura<br />
+          <span class="text-muted">para os três.</span>
+        </h2>
+
+        <div class="clauses">
+          <div class="clause">
+            <h4>Vesting de 4 anos com cliff de 1 ano</h4>
+            <p>Cada sócio adquire suas cotas gradualmente. Protege todas as partes contra saídas precoces.</p>
+          </div>
+          <div class="clause">
+            <h4>Direito técnico de decisão</h4>
+            <p>Autoridade final em arquitetura e stack com a NeuroNex. Decisões de produto, marketing e vendas colegiadas.</p>
+          </div>
+          <div class="clause">
+            <h4>Propriedade intelectual</h4>
+            <p>Código-fonte, marca e ativos digitais são propriedade da empresa criada, após formalização em cartório.</p>
+          </div>
+          <div class="clause">
+            <h4>Cláusula de saída (bad leaver / good leaver)</h4>
+            <p>Regras claras de recompra de cotas em desligamento voluntário ou involuntário.</p>
+          </div>
+          <div class="clause">
+            <h4>Não concorrência limitada</h4>
+            <p>Compromisso de não desenvolver produto idêntico durante e após a sociedade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 14 — CTA FINAL ============ -->
+    <section class="section section-cta">
+      <div class="container">
+        <h2 class="cta-title">Pronto para<br />começar?</h2>
+        <p class="cta-lead">
+          Conversamos esta semana, alinhamos os termos e iniciamos o Sprint 1
+          em até 10 dias. A plataforma no ar em 4 a 6 semanas depois disso.
+        </p>
+        <div class="cta-actions">
+          <a href={whatsappUrl} class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+            Falar no WhatsApp
+          </a>
+          <a href="mailto:contato@neuronex.digital" class="btn btn-ghost btn-lg">
+            Enviar e-mail
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-mark">N</span>
+          <span>NeuroNex</span>
+        </div>
+        <div class="footer-meta">
+          Tecnologia sob medida pra negócios que querem crescer.<br />
+          © {new Date().getFullYear()} NeuroNex. Proposta confidencial.
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script>
+      // Proteção de link por token
+      (function () {
+        const expected = document.body.getAttribute('data-token');
+        const params = new URLSearchParams(window.location.search);
+        const got = params.get('t');
+        if (expected && got !== expected) {
+          // Redireciona pra home se token inválido/ausente
+          // Comente a linha abaixo se quiser deixar página pública
+          // window.location.href = '/';
+        }
+      })();
+
+      // Animação de contadores
+      const counters = document.querySelectorAll('[data-count]');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const target = parseInt(el.getAttribute('data-count') || '0');
+              const original = el.textContent;
+              let current = 0;
+              const step = Math.max(1, Math.floor(target / 40));
+              const tick = () => {
+                current = Math.min(current + step, target);
+                el.textContent = original.replace(/\d+/, current.toString());
+                if (current < target) requestAnimationFrame(tick);
+                else el.textContent = original;
+              };
+              tick();
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      counters.forEach((c) => observer.observe(c));
+
+      // Calculadora ROI
+      const $ = (sel) => document.getElementById(sel);
+      const alunos = 150;
+      const custoMes = 825;
+
+      function formatBRL(v) {
+        return v.toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+          maximumFractionDigits: 0,
+        });
+      }
+
+      function updateCalc() {
+        const conv = parseInt($('conv').value);
+        const ticket = parseInt($('ticket').value);
+        const meses = parseInt($('meses').value);
+
+        const clientes = Math.round((alunos * conv) / 100);
+        const mrr = clientes * ticket;
+        const lucroMes = Math.max(0, mrr - custoMes);
+        const total = lucroMes * meses;
+        const neuronex = total * 0.3;
+        const socio = total * 0.35;
+
+        $('out-conversao').textContent = conv + '%';
+        $('out-ticket').textContent = formatBRL(ticket);
+        $('out-meses').textContent = meses + ' meses';
+        $('out-clientes').textContent = clientes;
+        $('out-mrr').textContent = formatBRL(mrr);
+        $('out-lucro').textContent = formatBRL(lucroMes);
+        $('out-total').textContent = formatBRL(total);
+        $('out-neuronex').textContent = formatBRL(neuronex);
+        $('out-socio').textContent = formatBRL(socio);
+      }
+
+      ['conv', 'ticket', 'meses'].forEach((id) => {
+        const el = $(id);
+        if (el) el.addEventListener('input', updateCalc);
+      });
+      updateCalc();
+    </script>
+
+    <!-- ============ ESTILOS ============ -->
+    <style is:global>
+      :root {
+        --bg: #050505;
+        --bg-alt: #0a0a0a;
+        --bg-card: #0f0f0f;
+        --bg-elevated: #141414;
+        --border: #1a1a1a;
+        --border-strong: #2a2a2a;
+        --fg: #fafafa;
+        --fg-muted: #a2a2a2;
+        --fg-dim: #6b6b6b;
+        --accent: #00dd97;
+        --accent-bg: rgba(0, 221, 151, 0.08);
+        --accent-ring: rgba(0, 221, 151, 0.25);
+        --gradient: linear-gradient(135deg, #00dd97 0%, #00b4ff 100%);
+        --radius: 12px;
+        --radius-lg: 20px;
+        --shadow-glow: 0 0 40px rgba(0, 221, 151, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        line-height: 1.6;
+        overflow-x: hidden;
+        font-feature-settings: 'cv11', 'ss01';
+      }
+
+      /* === BG GLOWS === */
+      .bg-glow {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(120px);
+        z-index: 0;
+        pointer-events: none;
+      }
+      .bg-glow-1 {
+        top: -200px;
+        left: -200px;
+        width: 600px;
+        height: 600px;
+        background: rgba(0, 221, 151, 0.12);
+      }
+      .bg-glow-2 {
+        top: 40%;
+        right: -300px;
+        width: 700px;
+        height: 700px;
+        background: rgba(0, 180, 255, 0.08);
+      }
+
+      /* === CONTAINER === */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* === NAV === */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(5, 5, 5, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: -0.02em;
+      }
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--gradient);
+        color: #000;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 16px;
+      }
+
+      /* === TIPO === */
+      .section {
+        padding: 100px 0;
+        position: relative;
+      }
+      .section-alt {
+        background: var(--bg-alt);
+      }
+      .section-label {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 100px;
+        background: var(--accent-bg);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .section-title {
+        font-size: clamp(36px, 5vw, 64px);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+        margin-bottom: 40px;
+      }
+      .section-lead {
+        font-size: 18px;
+        color: var(--fg-muted);
+        max-width: 720px;
+        margin-top: 40px;
+        line-height: 1.7;
+      }
+      .text-gradient {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .text-muted {
+        color: var(--fg-muted);
+      }
+
+      /* === HERO === */
+      .hero {
+        padding: 80px 0 120px;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: 100px;
+        font-size: 13px;
+        color: var(--fg-muted);
+        margin-bottom: 32px;
+      }
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 12px var(--accent);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      .hero-title {
+        font-size: clamp(42px, 7vw, 88px);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        font-weight: 800;
+        margin-bottom: 24px;
+      }
+      .hero-subtitle {
+        font-size: clamp(18px, 2vw, 22px);
+        color: var(--fg-muted);
+        max-width: 640px;
+        margin-bottom: 56px;
+      }
+      .hero-numbers {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .hero-number {
+        flex: 1;
+        min-width: 180px;
+      }
+      .hero-number-label {
+        font-size: 13px;
+        color: var(--fg-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+      }
+      .hero-number-value {
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .hero-divider {
+        width: 1px;
+        background: var(--border-strong);
+        margin: 0 24px;
+      }
+      @media (max-width: 720px) {
+        .hero-divider { display: none; }
+        .hero-numbers { gap: 24px; }
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* === BOTÕES === */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+      .btn-lg {
+        padding: 18px 32px;
+        font-size: 16px;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #000;
+        box-shadow: 0 0 0 3px transparent;
+      }
+      .btn-primary:hover {
+        box-shadow: 0 0 0 3px var(--accent-ring), 0 10px 30px rgba(0, 221, 151, 0.25);
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--fg);
+        border-color: var(--border-strong);
+      }
+      .btn-ghost:hover {
+        background: var(--bg-card);
+        border-color: var(--fg-muted);
+      }
+
+      /* === STATS === */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+        margin-top: 48px;
+      }
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .stat-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow);
+      }
+      .stat-value {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .stat-label {
+        font-size: 14px;
+        color: var(--fg-muted);
+      }
+
+      /* === GRID 2 COL === */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .grid-2 { grid-template-columns: 1fr; }
+      }
+      .feature-list {
+        list-style: none;
+      }
+      .feature-list li {
+        padding: 14px 0;
+        padding-left: 32px;
+        position: relative;
+        border-bottom: 1px solid var(--border);
+        font-size: 16px;
+      }
+      .feature-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* === PREVIEW IFRAME === */
+      .preview-wrap {
+        position: sticky;
+        top: 100px;
+      }
+      .preview-frame {
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-glow), 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+      .preview-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border);
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .dot-red { background: #ff5f57; }
+      .dot-yellow { background: #febc2e; }
+      .dot-green { background: #28c940; }
+      .preview-url {
+        margin-left: 12px;
+        font-size: 12px;
+        color: var(--fg-muted);
+        font-family: 'SF Mono', Menlo, monospace;
+      }
+      .preview-content {
+        aspect-ratio: 16 / 10;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      }
+      .preview-content iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .preview-placeholder {
+        text-align: center;
+        color: var(--fg-muted);
+      }
+      .preview-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #000;
+        display: grid;
+        place-items: center;
+        font-size: 28px;
+        margin: 0 auto 16px;
+        box-shadow: var(--shadow-glow);
+      }
+      .preview-small {
+        font-size: 13px;
+        margin-top: 8px;
+        opacity: 0.6;
+      }
+      .preview-caption {
+        text-align: center;
+        margin-top: 16px;
+        color: var(--fg-muted);
+        font-size: 14px;
+      }
+
+      /* === STEPS === */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+      }
+      .step {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        position: relative;
+      }
+      .step-num {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 16px;
+      }
+      .step-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .step-desc {
+        color: var(--fg-muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .step-tag {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 4px 12px;
+        background: var(--accent-bg);
+        color: var(--accent);
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      /* === STACK GRID === */
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-bottom: 48px;
+      }
+      .stack-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.2s ease;
+      }
+      .stack-item:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .stack-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      .stack-metric {
+        text-align: center;
+        padding: 32px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+      }
+      .stack-metric-value {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--accent);
+      }
+      .stack-metric-label {
+        color: var(--fg-muted);
+        font-size: 14px;
+        margin-top: 4px;
+      }
+
+      /* === ASSETS === */
+      .assets-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+      .asset-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        text-align: center;
+      }
+      .asset-num {
+        font-size: 56px;
+        font-weight: 800;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.03em;
+        margin-bottom: 8px;
+      }
+      .asset-label {
+        color: var(--fg-muted);
+        font-size: 14px;
+      }
+
+      /* === PRICING TABLE === */
+      .pricing-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 32px;
+      }
+      .pricing-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 32px;
+        border-bottom: 1px solid var(--border);
+      }
+      .pricing-row:last-child { border-bottom: 0; }
+      .pricing-featured {
+        background: var(--accent-bg);
+        border-left: 3px solid var(--accent);
+      }
+      .pricing-old {
+        color: var(--fg-muted);
+        text-decoration: line-through;
+      }
+      .pricing-new {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .highlight-box {
+        background: var(--bg-card);
+        border: 1px solid var(--accent);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        text-align: center;
+        box-shadow: var(--shadow-glow);
+      }
+      .highlight-num {
+        font-size: clamp(40px, 6vw, 72px);
+        font-weight: 800;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.03em;
+        margin-bottom: 8px;
+      }
+      .highlight-text {
+        color: var(--fg-muted);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* === PILLARS === */
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+      .pillar {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 40px 32px;
+        position: relative;
+      }
+      .pillar-featured {
+        border-color: var(--accent);
+        box-shadow: var(--shadow-glow);
+        transform: scale(1.02);
+      }
+      .pillar-badge {
+        position: absolute;
+        top: -12px;
+        left: 32px;
+        background: var(--accent);
+        color: #000;
+        padding: 4px 12px;
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .pillar-icon {
+        font-size: 14px;
+        color: var(--fg-dim);
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .pillar-title {
+        font-size: 16px;
+        color: var(--fg-muted);
+        margin-bottom: 8px;
+      }
+      .pillar-value {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+      }
+      .pillar-featured .pillar-value {
+        color: var(--accent);
+      }
+      .pillar-desc {
+        color: var(--fg-muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* === SCOPE === */
+      .scope-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      @media (max-width: 900px) {
+        .scope-grid { grid-template-columns: 1fr; }
+      }
+      .scope-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+      }
+      .scope-in { border-color: var(--accent); }
+      .scope-out { border-color: var(--border-strong); }
+      .scope-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+      .scope-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+      }
+      .scope-icon-in {
+        background: var(--accent);
+        color: #000;
+      }
+      .scope-icon-out {
+        background: var(--border-strong);
+        color: var(--fg-muted);
+      }
+      .scope-card ul {
+        list-style: none;
+      }
+      .scope-card li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        color: var(--fg);
+      }
+      .scope-card li:last-child {
+        border-bottom: 0;
+      }
+      .scope-note {
+        margin-top: 24px;
+        padding: 16px;
+        background: var(--bg-elevated);
+        border-radius: var(--radius);
+        font-size: 14px;
+        color: var(--fg-muted);
+        font-style: italic;
+      }
+
+      /* === CALCULADORA === */
+      .calculator {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        margin-top: 48px;
+      }
+      @media (max-width: 900px) {
+        .calculator { grid-template-columns: 1fr; }
+      }
+      .calc-input {
+        margin-bottom: 32px;
+      }
+      .calc-input:last-child {
+        margin-bottom: 0;
+      }
+      .calc-input label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: var(--fg-muted);
+      }
+      .calc-input label strong {
+        color: var(--accent);
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .calc-input input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 4px;
+        background: var(--border-strong);
+        border-radius: 2px;
+        outline: none;
+      }
+      .calc-input input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent);
+        cursor: pointer;
+        box-shadow: 0 0 0 4px var(--accent-ring);
+      }
+      .calc-input input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent);
+        cursor: pointer;
+        border: 0;
+      }
+      .calc-hint {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+        font-size: 11px;
+        color: var(--fg-dim);
+      }
+      .calculator-outputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .calc-output {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+      }
+      .calc-output-highlight {
+        grid-column: span 2;
+        border-color: var(--accent);
+        background: var(--accent-bg);
+      }
+      .calc-output-label {
+        font-size: 12px;
+        color: var(--fg-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+      }
+      .calc-output-value {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .calc-output-highlight .calc-output-value {
+        color: var(--accent);
+        font-size: 32px;
+      }
+
+      /* === TIMELINE === */
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .timeline-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--accent);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+      .timeline-week {
+        font-size: 12px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .timeline-item h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .timeline-item p {
+        color: var(--fg-muted);
+        font-size: 14px;
+      }
+
+      /* === COST TABLE === */
+      .cost-table {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+      .cost-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 32px;
+        border-bottom: 1px solid var(--border);
+      }
+      .cost-row:last-child { border-bottom: 0; }
+      .cost-row-total {
+        background: var(--bg-elevated);
+        font-size: 18px;
+      }
+      .margin-note {
+        padding: 24px;
+        background: var(--accent-bg);
+        border-left: 3px solid var(--accent);
+        border-radius: var(--radius);
+        color: var(--fg);
+      }
+
+      /* === PARTS GRID === */
+      .parts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      @media (max-width: 900px) {
+        .parts-grid { grid-template-columns: 1fr; }
+      }
+      .part-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+      }
+      .part-card-featured {
+        border-color: var(--accent);
+        box-shadow: var(--shadow-glow);
+      }
+      .part-label {
+        font-size: 12px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .part-card h3 {
+        font-size: 24px;
+        margin-bottom: 24px;
+        letter-spacing: -0.02em;
+      }
+      .part-card ul {
+        list-style: none;
+      }
+      .part-card li {
+        padding: 10px 0;
+        padding-left: 24px;
+        position: relative;
+        border-bottom: 1px solid var(--border);
+        font-size: 15px;
+      }
+      .part-card li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+      .part-card li:last-child {
+        border-bottom: 0;
+      }
+
+      /* === CLAUSES === */
+      .clauses {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .clause {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+      .clause h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: var(--accent);
+      }
+      .clause p {
+        color: var(--fg-muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* === CTA FINAL === */
+      .section-cta {
+        background: var(--bg-alt);
+        text-align: center;
+        padding: 140px 0;
+      }
+      .cta-title {
+        font-size: clamp(48px, 8vw, 96px);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 32px;
+      }
+      .cta-lead {
+        font-size: 18px;
+        color: var(--fg-muted);
+        max-width: 560px;
+        margin: 0 auto 48px;
+      }
+      .cta-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* === FOOTER === */
+      .footer {
+        padding: 48px 0;
+        border-top: 1px solid var(--border);
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+      }
+      .footer-meta {
+        color: var(--fg-muted);
+        font-size: 13px;
+        text-align: right;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 640px) {
+        .section { padding: 64px 0; }
+        .hero { padding: 48px 0 80px; }
+        .hero-numbers { padding: 24px; }
+        .pillars, .calculator { gap: 16px; }
+      }
+    </style>
+  </body>
+</html>
